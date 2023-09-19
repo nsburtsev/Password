@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13403F082AB9A944007AF4E0 /* PasswordCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13403F072AB9A944007AF4E0 /* PasswordCriteria.swift */; };
 		13C7B06E2AB37716003660F7 /* PasswordCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C7B06D2AB37716003660F7 /* PasswordCriteriaView.swift */; };
 		13DD1CC52AB1E54B009DEFCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DD1CC42AB1E54B009DEFCD /* AppDelegate.swift */; };
 		13DD1CC92AB1E54B009DEFCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DD1CC82AB1E54B009DEFCD /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13403F072AB9A944007AF4E0 /* PasswordCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteria.swift; sourceTree = "<group>"; };
 		13C7B06D2AB37716003660F7 /* PasswordCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteriaView.swift; sourceTree = "<group>"; };
 		13DD1CC12AB1E54B009DEFCD /* Password.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Password.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13DD1CC42AB1E54B009DEFCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 			children = (
 				13C7B06D2AB37716003660F7 /* PasswordCriteriaView.swift */,
 				13EFCC5C2AB48EDA0052EA67 /* PasswordStatusView.swift */,
+				13403F072AB9A944007AF4E0 /* PasswordCriteria.swift */,
 			);
 			name = PasswordStatusView;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13DD1CC92AB1E54B009DEFCD /* ViewController.swift in Sources */,
+				13403F082AB9A944007AF4E0 /* PasswordCriteria.swift in Sources */,
 				13DD1CC52AB1E54B009DEFCD /* AppDelegate.swift in Sources */,
 				13C7B06E2AB37716003660F7 /* PasswordCriteriaView.swift in Sources */,
 				13EFCC5D2AB48EDA0052EA67 /* PasswordStatusView.swift in Sources */,
