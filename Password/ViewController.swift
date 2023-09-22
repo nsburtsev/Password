@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     let confirmPasswordTextField = PasswordTextField(placeHolderText: "Re-enter new password")
     let resetButton = UIButton(type: .system)
     
+    var alert: UIAlertController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -59,6 +61,7 @@ extension ViewController {
         }
         
         newPasswordTextField.customValidation = newPasswordValidation
+        newPasswordTextField.delegate = self
     }
     
     private func setupConfirmPassword() {
@@ -112,7 +115,6 @@ extension ViewController {
         resetButton.configuration = .filled()
         resetButton.setTitle("Reset password", for: [])
         resetButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .primaryActionTriggered)
-
     }
     
     func layout() {
@@ -154,10 +156,8 @@ extension ViewController: PasswordTextFieldDelegate {
 extension ViewController {
     @objc func keyboardWillShow(sender: NSNotification) {
         guard let userInfo = sender.userInfo,
-              let keyboardFrame =
-                userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-              let currentTextField = UIResponder.currentFirst() as? UITextField
-        else { return }
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
         
         // check if the top of the keyboard is above the bottom of the currently focused textbox
         let keyboardTopY = keyboardFrame.cgRectValue.origin.y
@@ -167,7 +167,7 @@ extension ViewController {
         // if textField bottom is below keyboard bottom - bump the frame up
         if textFieldBottomY > keyboardTopY {
             let textBoxY = convertedTextFieldFrame.origin.y
-            let newFrameY = (textBoxY - keyboardTopY / 2) * -1
+            let newFrameY = (textBoxY - keyboardTopY / 1.5) * -1
             view.frame.origin.y = newFrameY
         }
     }
@@ -192,11 +192,25 @@ extension ViewController {
     }
 
     private func showAlert(title: String, message: String) {
-        let alert =  UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert =  UIAlertController(title: "", message: "", preferredStyle: .alert)
+        guard let alert = alert else { return }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
         alert.title = title
         alert.message = message
         present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: Tests
+extension ViewController {
+    var newPasswordText: String? {
+        get { return newPasswordTextField.text }
+        set { newPasswordTextField.text = newValue}
+    }
+    
+    var confirmPasswordText: String? {
+        get { return confirmPasswordTextField.text }
+        set { confirmPasswordTextField.text = newValue}
     }
 }
